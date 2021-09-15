@@ -1,0 +1,620 @@
+// This is where you can import other stylesheets or write your scss code
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import './abstract/functions';
+@import './abstract/mixin';
+@import './abstract/animation';
+//Variables.
+$mainColor: #3e3367;
+$secondaryColor: #2D2C2C;
+$lightColor: #CAE0DC;
+$fontColor: #f8866f;
+$content-nav-padding: 40px;
+$fullScreenHight: 100vh;
+$openingTagURL: '../images/opening-tag.svg';
+$closingTagURL: '../images/closed-tag.svg';
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    background-repeat: no-repeat;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $mainColor;
+}
+
+// header {
+//     // height: $fullScreenHight;
+//     // background-color: #ff652f;
+//     // background-image: linear-gradient(to right, #d05252, #dd554c, #ea5944, #f55e3b, #ff652f);
+// }
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 2.4rem;
+}
+
+.header-section {
+    background-color: $lightColor;
+    background-image: url('../images/simple-webPage.webp');
+    background-position: 161px 90px;
+    background-size: 88vw 76%;
+    background-repeat: no-repeat;
+}
+
+.topStuff {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.topStuff a {
+    color: #2D2C2C;
+}
+
+.topStuff a:first-of-type {
+    text-transform: uppercase;
+}
+
+.topStuff h4 {
+    font-size: 2rem;
+}
+
+.hero {
+    height: $fullScreenHight;
+    color: $secondaryColor;
+    @include middlePosition(grid);
+    // background-color: $lightColor;
+}
+
+// .hero::before {
+//     content: '';
+//     // display: block;
+//     @include background ($openingTagURL,
+//     150px,
+//     no-repeat,
+//     center,
+//     center);
+//     width: 450px;
+//     height: 450px;
+//     position: absolute;
+//     left: 0;
+//     margin: auto;
+// }
+// .hero::after {
+//     content: '';
+//     @include background ($closingTagURL,
+//     150px,
+//     no-repeat,
+//     center,
+//     center);
+//     width: 450px;
+//     height: 450px;
+//     position: absolute;
+//     right: 0;
+//     margin: auto;
+// }
+.display-1 {
+    font-size: 6vw;
+    font-weight: lighter;
+}
+
+.animated-arrow {
+    // font-size: 8rem;
+    position: absolute;
+    margin: auto;
+    bottom: 0;
+    border: 4px solid #3e3367;
+    border-radius: 15px 15px 100px 100px;
+    background-color: #3e3367;
+    @include middlePosition(grid);
+    @include arrow-down-animation;
+}
+
+//Nav style
+.nav-section {
+    // background-color: #E03D3D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw 0 11.8vw;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    z-index: 1;
+}
+
+.logo {
+    width: 150px;
+}
+
+.logo img {
+    width: 50%;
+}
+
+nav {
+    padding: $content-nav-padding;
+}
+
+.nav a {
+    height: fit-content;
+    margin: padding(4rem);
+    padding: padding(1rem);
+    font-size: 2.5rem;
+    color: white;
+    transition: all 0.5s ease;
+    position: relative;
+    font-weight: lighter;
+}
+
+.nav a::after {
+    transition: all 0.5s ease;
+}
+
+.nav a:hover:not(.logo) {
+    font-size: 3rem;
+    color: $fontColor;
+    background-color: white;
+    font-weight: bolder;
+}
+
+.nav a:hover::after {
+    content: '';
+    width: 0%;
+    // height: inherit;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    border: 5px solid $fontColor;
+    border-width: 5px 0;
+    animation: hoverBorderEffect 1s alternate forwards;
+}
+
+.mobile-nav-section {
+    display: none;
+}
+
+// ------- End of the header ------------
+// ==================
+// start main design
+// ==================
+main>* {
+    padding: $content-nav-padding;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    // grid-auto-rows: repeat(8, 1fr);
+    align-items: center;
+}
+
+// First Section
+.first-section {
+    padding-top: 200px;
+    color: #fff;
+    height: $fullScreenHight;
+    background-image: linear-gradient(to top, #3e3367, #4b4075, #594d83, #675b92, #7569a1);
+    ;
+}
+
+.left-section-inFirstSection {
+    grid-column: 2/5;
+    grid-row: 1/9;
+}
+
+.bg-first-section {
+    background-image: url('../images/Design.svg');
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    grid-column: 6 / 9;
+    grid-row: 1 / 9;
+}
+
+main h1 {
+    font-size: 7rem;
+    // font-weight: lighter;
+}
+
+.first-section p {
+    margin-top: 25px;
+    font-weight: lighter;
+}
+
+.button {
+    margin-top: 40px;
+    backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    background: #8f83bb;
+    border-radius: 10px;
+    border: 0px solid #7467a3;
+    border-width: 0px 0px 6px 0px;
+    padding: 15px;
+    color: #fff;
+    font-size: 4rem;
+    width: 40%;
+    text-align: center;
+    transition: border-width 0.2s;
+}
+
+// .button:active {
+//     border-width: 0px 0px 0px 0px;
+// }
+.button>div {
+    color: #999;
+    font-size: 10px;
+    font-family: Helvetica Neue;
+    font-weight: initial;
+    font-style: normal;
+    text-align: center;
+    margin: 0px 0px 0px 0px
+}
+
+.button>i {
+    font-size: 1em;
+    border-radius: 0px;
+    border: 0px solid transparent;
+    border-width: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    position: static
+}
+
+.button>.ld {
+    font-size: initial
+}
+
+//----------END of First Section---------------
+// ====================
+// Start Second Section
+// ====================
+.second-section {
+    height: calc(#{$fullScreenHight});
+    background-color: #fff;
+    color: #3f3936;
+}
+
+.left-section p {
+    margin-top: 40px;
+}
+
+.second-section .left-section {
+    grid-column: 5/8;
+    grid-row: 1/9;
+    padding-left: 100px;
+}
+
+.second-section .right-section {
+    background-image: url('../images/Marketing.webp');
+    background-size: contain;
+    background-position: left;
+    height: 100%;
+    width: 100%;
+    grid-column: 1 / 5;
+    grid-row: 1 / 9;
+}
+
+.bt-2 {
+    width: fit-content;
+    background: #67676e;
+    border: 0px solid #3f3936;
+    border-width: 0px 0px 6px 0px;
+}
+
+//------- END of second section --------
+// ====================
+// Start Third Section
+// ====================
+.third-section {
+    color: #fff;
+    // height: 50vh;
+}
+
+.third-section h1 {
+    border-bottom: 1px solid #fff;
+    width: 40%;
+    margin: auto
+}
+
+.fo-left-section {
+    grid-column: 1/9;
+    grid-row: 2;
+    /* z-index: 1; */
+    text-align: center;
+}
+
+//------- END of THIRD section --------
+// =============
+// Forth Section
+// =============
+.forth-section {
+    color: #fff;
+    height: calc(#{$fullScreenHight} / 2);
+}
+
+.forth-section .left-section {
+    grid-column: 2/5;
+    grid-row: 1/9;
+}
+
+.right-section-bg {
+    background-image: url('../images/web-development.webp');
+    background-size: contain;
+    background-position: center 25px;
+    height: 100%;
+    width: 100%;
+    grid-column: 5/9;
+    grid-row: 1/9;
+}
+
+//------- END of FORTH section --------
+// =============
+// Fifth Section
+// =============
+.fifth-section {
+    color: #fff;
+    height: calc(100vh / 2);
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+.fif-left-section {
+    grid-column: 5/9;
+    grid-row: 1/9;
+    padding: 0 100px;
+}
+
+.fif-right-section-bg {
+    grid-column: 2/5;
+    grid-row: 1/9;
+    background-image: url(../images/app-dev.svg);
+    background-size: contain;
+    background-position: center;
+    height: 120%;
+    width: 100%;
+}
+
+//------- END of Fifth section --------
+.section {
+    background-image: url("../images/contact-us.svg");
+    background-size: 519px;
+    background-repeat: no-repeat;
+    background-position: 91%;
+    font-size: 2rem;
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.section h1 {
+    grid-column: 1/9;
+    text-align: center;
+}
+
+.bg5 {
+    font-family: "Cairo";
+    text-align: left;
+}
+
+.bg5 p {
+    max-width: 45%;
+    position: relative;
+    /* transform: translateY(50%); */
+    /* padding: 0 10%; */
+}
+
+.form-section {
+    grid-column: 2/9;
+    grid-row: 2;
+    margin-top: 40px;
+}
+
+.form-bg {
+    background-size: contain;
+    background-position: center 25px;
+    height: 100%;
+    width: 100%;
+    grid-column: 5/9;
+    grid-row: 1/9;
+}
+
+form * {
+    padding: 0 !important;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 30% !important;
+    margin-left: -150px;
+}
+
+textarea {
+    width: 46%;
+}
+
+select {
+    left: -150px !important;
+    position: relative;
+}
+
+.labelText {
+    vertical-align: middle;
+    display: inline-block;
+    width: 25%;
+    /* padding: 10px 0 !important; */
+    /* text-align: right; */
+    /* vertical-align: top; */
+}
+
+label a {
+    color: pink;
+}
+
+label a:hover {
+    color: lightblue;
+}
+
+input[type=submit] {
+    text-align: center !important;
+    width: 250px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #37474f;
+    color: #37474f;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 15px 0;
+}
+
+input[type=submit]:hover {
+    background-color: #37474f;
+    transition: all 0.3s;
+    color: #fff;
+    border: 1px solid;
+}
+
+.fieldreq {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 70px;
+}
+
+
+/* footer style */
+
+footer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: initial;
+    display: grid;
+    place-content: center;
+    /* height: 200px; */
+    background-color: #303030;
+    border-top: 1px #fff solid;
+    color: #fff;
+    padding-top: 10px;
+    letter-spacing: initial;
+    /* font-size: 1.2rem; */
+    height: 80px;
+}
+
+footer span {
+    font-size: 2rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+//To top 
+.top a {
+    color: #f8866f;
+    padding: 35px;
+    font-size: 7em;
+}
+
+.top {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 50px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+    position: absolute;
+}
+
+//------- END of Normal Style --------
+@keyframes hoverBorderEffect {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .nav-section {
+        display: none;
+    }
+    .animated-arrow {
+        display: none;
+    }
+    .display-1 {
+        position: relative;
+        font-size: calc(3.625rem + 5vw);
+        font-weight: bolder;
+        top: -150px;
+        text-align: center;
+    }
+    .hero {
+        @include background ('../images/happyPersononComputer.png',
+        100%,
+        no-repeat,
+        center,
+        bottom);
+        transition: all 2s ease-in-out;
+    }
+    .hero::before {
+        display: none;
+    }
+    .hero::after {
+        display: none;
+    }
+    .burgerButton {
+        display: initial;
+    }
+    .mobile-nav-section {
+        display: initial;
+        text-align: center;
+    }
+    nav {
+        // padding: 0 !important;
+        background-color: #E03D3D;
+        color: white;
+    }
+    nav:first-child,
+    nav:nth-child(2) {
+        padding: 0 40px;
+    }
+    .logo {
+        width: initial;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 2047px) {
+    .header-section {
+        background-size: 90vw;
+        background-position: 161px 130px;
+    }
+}

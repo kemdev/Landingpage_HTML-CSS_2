@@ -1,0 +1,17 @@
+@mixin middlePosition($type) {
+    display: $type;
+    @if $type==flex or $type=='flex' {
+        align-items: center;
+        justify-content: center;
+    }
+    @else if $type==grid or $type=='grid' {
+        place-content: center;
+    }
+}
+
+@mixin background($url, $size: initial, $repeat: no-repeat, $positionX: 0, $positionY:0) {
+    background-image: url($url);
+    background-size: $size;
+    background-repeat: $repeat;
+    background-position: $positionX $positionY;
+}
