@@ -11174,6 +11174,7 @@ p {
   color: #2D2C2C;
   display: grid;
   place-content: center;
+  justify-items: center;
 }
 
 .display-1 {
